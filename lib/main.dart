@@ -26,7 +26,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = ['What is your name ', 'What is your favourite color '];
+    var questions = [
+      'What is your name? ',
+      'What is your favourite color? ',
+      'What is the name of your pet?'
+    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -37,7 +41,11 @@ class _MyAppState extends State<MyApp> {
           children: [
             Question(questions[_questionIndex]),
             ElevatedButton(
-                child: Text('Answer 1'), onPressed: _answerQuestions),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.green),
+                ),
+                child: Text('Answer 1'),
+                onPressed: _answerQuestions),
             ElevatedButton(
               child: Text('Answer 2'),
               onPressed: _answerQuestions,
