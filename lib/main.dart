@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import './result.dart';
 import './question.dart';
+import './answer.dart';
+import './quiz.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,47 +18,57 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _questions = const [
+    {
+      'questionText': 'What is your favourite color?',
+      'answers': [
+        'Black ',
+        'Red',
+        'Purple',
+      ]
+    },
+    {
+      'questionText': 'What is your favourite animal?',
+      'answers': [
+        'Dog',
+        'Cat ',
+        'Cockroach',
+      ]
+    },
+    {
+      'questionText': 'Who is your favourite TMKOC character ',
+      'answers': [
+        'Jethalal',
+        'bOObita ji ',
+        'Anjali Bhabhi ',
+      ]
+    }
+  ];
   var _questionIndex = 0;
-  void _answerQuestions() {
+  void _answerQuestion() {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    print('you have answered the questions');
-    print(_questionIndex);
+    if (_questionIndex < _questions.length) {
+      print('you have more answered ');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      'What is your name? ',
-      'What is your favourite color? ',
-      'What is the name of your pet?'
-    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.amberAccent,
           title: Text('My first App', textScaleFactor: 1.6),
         ),
-        body: Column(
-          children: [
-            Question(questions[_questionIndex]),
-            ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.green),
-                ),
-                child: Text('Answer 1'),
-                onPressed: _answerQuestions),
-            ElevatedButton(
-              child: Text('Answer 2'),
-              onPressed: _answerQuestions,
-            ),
-            ElevatedButton(
-              child: Text('Answer 3'),
-              onPressed: () => print('Answer 3 chosen'),
-            ),
-          ],
-        ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
+              )
+            : Result(),
       ),
     );
   }
