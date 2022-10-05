@@ -22,30 +22,35 @@ class _MyAppState extends State<MyApp> {
     {
       'questionText': 'What is your favourite color?',
       'answers': [
-        'Black ',
-        'Red',
-        'Purple',
+        {'text': 'Black ', 'score': '10'},
+        {'text': 'Red', 'score': '6'},
+        {'text': 'Green ', 'score': '3'},
+        {'text': 'White', 'score': '1'},
       ]
     },
     {
       'questionText': 'What is your favourite animal?',
       'answers': [
-        'Dog',
-        'Cat ',
-        'Cockroach',
+        {'text': 'Dog ', 'score': '10'},
+        {'text': 'Cat', 'score': '6'},
+        {'text': 'Cockroach ', 'score': '3'},
+        {'text': 'Boyfriend', 'score': '1'},
       ]
     },
     {
       'questionText': 'Who is your favourite TMKOC character ',
       'answers': [
-        'Jethalal',
-        'bOObita ji ',
-        'Anjali Bhabhi ',
+        {'text': 'Madavi aunty', 'score': '7'},
+        {'text': 'Raushan Bhabhi', 'score': '6'},
+        {'text': 'bOObita ji ', 'score': '3'},
+        {'text': 'Anjali Bhabhi', 'score': '1'},
       ]
     }
   ];
   var _questionIndex = 0;
+  var _totalScore = 0;
   void _answerQuestion() {
+    // _totalScore += score;
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
