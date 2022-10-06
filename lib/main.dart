@@ -45,7 +45,16 @@ class _MyAppState extends State<MyApp> {
         {'text': 'bOObita ji ', 'score': '3'},
         {'text': 'Anjali Bhabhi', 'score': '1'},
       ]
-    }
+    },
+    {
+      'questionText': 'What is your favourite time pass',
+      'answers': [
+        {'text': 'Sleepig ', 'score': '1'},
+        {'text': 'Dancing', 'score': '6'},
+        {'text': 'Playing ', 'score': '3'},
+        {'text': 'Mobile Phone ', 'score': '10'},
+      ]
+    },
   ];
   var _questionIndex = 0;
   var _totalScore = 0;
